@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d4f73">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Salas">
+  <title>Salas · Reservas de Salas de Estudio</title>
+  <link rel="icon" href="img/icono.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/icono-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header id="cabecera"></header>
+  <main class="pagina">
+    <div class="pagina__titulo">
+      <div>
+        <h1>Salas</h1>
+        <p>Registra salas y define su capacidad y ubicación. Una sala inactiva no recibe reservas nuevas.</p>
+      </div>
+      <span id="reloj" class="reloj"></span>
+    </div>
+
+    <section class="tarjeta">
+      <h2 id="titulo-form" style="margin-bottom:12px">Nueva sala</h2>
+      <form id="form-sala" class="form-admin" novalidate>
+        <div class="campo"><label for="nombre">Nombre</label><input id="nombre" name="nombre" maxlength="60" required placeholder="Sala F"></div>
+        <div class="campo"><label for="capacidad">Capacidad</label><input id="capacidad" name="capacidad" type="number" min="1" max="50" required placeholder="6"></div>
+        <div class="campo campo--ancho"><label for="ubicacion">Ubicación</label><input id="ubicacion" name="ubicacion" maxlength="120" placeholder="Biblioteca Central · Piso 2"></div>
+        <div class="campo"><label class="interruptor"><input type="checkbox" name="activa" checked> Activa</label></div>
+        <div class="acciones">
+          <button class="boton boton--primario" type="submit" id="guardar">Agregar sala</button>
+          <button class="boton boton--secundario oculto" type="button" id="cancelar-edicion">Cancelar</button>
+        </div>
+      </form>
+      <div id="mensaje" style="margin-top:12px"></div>
+    </section>
+
+    <section class="tarjeta">
+      <div class="tarjeta__titulo"><h2>Salas registradas</h2></div>
+      <div class="tabla-envoltura" id="tabla"><p class="cargando">Cargando…</p></div>
+    </section>
+  </main>
+  <script type="module" src="js/paginas/salas.js"></script>
+</body>
+</html>

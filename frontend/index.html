@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d4f73">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Salas">
+  <title>Ingresar · Reservas de Salas de Estudio</title>
+  <link rel="icon" href="img/icono.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/icono-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <main class="login">
+    <div class="login__caja">
+      <section class="login__intro">
+        <p class="reloj">Taller de Ingeniería de Software · Proyecto Integrador 2026</p>
+        <h1>Sistema de Reservas de Salas de Estudio</h1>
+        <p>Reserva una sala por bloques de 1 hora y confirma tu llegada dentro de los primeros 15 minutos.</p>
+        <ul>
+          <li>Bloques entre 08:00 y 21:00, hasta 2 horas seguidas</li>
+          <li>Máximo 2 reservas vigentes por estudiante</li>
+          <li>Si no confirmas a tiempo, la sala se libera</li>
+        </ul>
+        <p class="reloj">Inicio de sesión simulado · solo datos ficticios</p>
+      </section>
+
+      <section class="login__form">
+        <div>
+          <h2>Ingresar</h2>
+          <p class="campo__ayuda">Elige un usuario de prueba o escribe su correo.</p>
+        </div>
+        <div id="mensaje"></div>
+        <div id="lista-usuarios" class="lista-usuarios" aria-label="Usuarios de prueba">
+          <p class="cargando">Cargando usuarios…</p>
+        </div>
+        <div class="separador">o con tu correo</div>
+        <form id="form-login" novalidate>
+          <div class="campo">
+            <label for="correo">Correo</label>
+            <input id="correo" name="correo" type="email" autocomplete="email" placeholder="nombre@alumnos.demo.cl" required>
+          </div>
+          <button class="boton boton--primario" type="submit" style="width:100%;margin-top:12px">Ingresar</button>
+        </form>
+
+        <p class="login__registro">
+          ¿Eres usuario nuevo?
+          <button type="button" id="mostrar-registro" class="enlace-texto">Regístrate aquí</button>
+        </p>
+
+        <form id="form-registro" class="login__form-registro oculto" novalidate>
+          <div class="campo">
+            <label for="nombre-registro">Nombre</label>
+            <input id="nombre-registro" name="nombre" maxlength="80" autocomplete="name" placeholder="Nombre Apellido" required>
+          </div>
+          <div class="campo">
+            <label for="correo-registro">Correo</label>
+            <input id="correo-registro" name="correo" type="email" autocomplete="email" placeholder="nombre@alumnos.demo.cl" required>
+          </div>
+          <button class="boton boton--primario" type="submit">Crear cuenta</button>
+        </form>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="js/paginas/login.js"></script>
+</body>
+</html>

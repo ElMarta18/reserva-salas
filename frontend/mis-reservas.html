@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d4f73">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Salas">
+  <title>Mis reservas · Reservas de Salas de Estudio</title>
+  <link rel="icon" href="img/icono.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/icono-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header id="cabecera"></header>
+  <main class="pagina">
+    <div class="pagina__titulo">
+      <div>
+        <h1>Mis reservas</h1>
+        <p>Confirma tu llegada dentro de los primeros 15 minutos o cancela antes de que empiece el bloque.</p>
+      </div>
+      <div class="grupo-botones">
+        <span id="reloj" class="reloj" style="align-self:center"></span>
+        <a class="boton boton--primario" href="nueva-reserva.html">Nueva reserva</a>
+      </div>
+    </div>
+
+    <div class="pestanas" role="tablist">
+      <button type="button" role="tab" id="tab-proximas" aria-selected="true">Próximas <span class="contador" id="n-proximas">0</span></button>
+      <button type="button" role="tab" id="tab-historial" aria-selected="false">Historial <span class="contador" id="n-historial">0</span></button>
+    </div>
+    <div id="mensaje"></div>
+    <div id="lista" class="lista-reservas"><p class="cargando">Cargando reservas…</p></div>
+  </main>
+  <script type="module" src="js/paginas/mis-reservas.js"></script>
+</body>
+</html>

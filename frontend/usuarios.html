@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d4f73">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Salas">
+  <title>Usuarios · Reservas de Salas de Estudio</title>
+  <link rel="icon" href="img/icono.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/icono-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header id="cabecera"></header>
+  <main class="pagina">
+    <div class="pagina__titulo">
+      <div>
+        <h1>Usuarios</h1>
+        <p>Registra estudiantes y personal de biblioteca. Solo datos ficticios: no hay cuenta institucional.</p>
+      </div>
+      <span id="reloj" class="reloj"></span>
+    </div>
+
+    <section class="tarjeta">
+      <h2 id="titulo-form" style="margin-bottom:12px">Nuevo usuario</h2>
+      <form id="form-usuario" class="form-admin" novalidate>
+        <div class="campo"><label for="nombre">Nombre</label><input id="nombre" name="nombre" maxlength="80" required placeholder="Nombre Apellido"></div>
+        <div class="campo campo--ancho"><label for="correo">Correo</label><input id="correo" name="correo" type="email" required placeholder="nombre@alumnos.demo.cl"></div>
+        <div class="campo"><label for="rol">Rol</label>
+          <select id="rol" name="rol"><option value="estudiante">Estudiante</option><option value="biblioteca">Biblioteca</option></select>
+        </div>
+        <div class="acciones">
+          <button class="boton boton--primario" type="submit" id="guardar">Agregar usuario</button>
+          <button class="boton boton--secundario oculto" type="button" id="cancelar-edicion">Cancelar</button>
+        </div>
+      </form>
+      <div id="mensaje" style="margin-top:12px"></div>
+    </section>
+
+    <section class="tarjeta">
+      <div class="tarjeta__titulo">
+        <h2>Usuarios registrados</h2>
+        <div class="segmentado" id="filtro-rol" style="width:100%;max-width:360px" role="group" aria-label="Filtrar por rol">
+          <button type="button" data-rol="" aria-pressed="true">Todos</button>
+          <button type="button" data-rol="estudiante" aria-pressed="false">Estudiantes</button>
+          <button type="button" data-rol="biblioteca" aria-pressed="false">Biblioteca</button>
+        </div>
+      </div>
+      <div class="tabla-envoltura" id="tabla"><p class="cargando">Cargando…</p></div>
+    </section>
+  </main>
+  <script type="module" src="js/paginas/usuarios.js"></script>
+</body>
+</html>

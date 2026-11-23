@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d4f73">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Salas">
+  <title>Nueva reserva · Reservas de Salas de Estudio</title>
+  <link rel="icon" href="img/icono.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/icono-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header id="cabecera"></header>
+  <main class="pagina">
+    <div class="pagina__titulo">
+      <div>
+        <h1>Nueva reserva</h1>
+        <p>Tres pasos: fecha y sala, horario y asistentes.</p>
+      </div>
+      <span id="reloj" class="reloj"></span>
+    </div>
+
+    <div id="exito"></div>
+
+    <form id="form-reserva" class="diseno-dos" novalidate>
+      <div class="pasos">
+        <section class="tarjeta paso" id="paso-1">
+          <span class="paso__numero">1</span>
+          <div class="paso__cuerpo">
+            <h2>Fecha y sala</h2>
+            <p>Las salas se reservan entre las 08:00 y las 21:00.</p>
+            <div class="campo" style="max-width:220px;margin-bottom:14px">
+              <label for="fecha">Fecha</label>
+              <input id="fecha" name="fecha" type="date" required>
+            </div>
+            <div class="campo">
+              <span id="etiqueta-sala" class="sr-only">Sala</span>
+              <div id="salas" class="opciones-sala" role="group" aria-labelledby="etiqueta-sala">
+                <p class="cargando">Cargando salas…</p>
+              </div>
+              <input type="hidden" name="sala_id">
+            </div>
+          </div>
+        </section>
+
+        <section class="tarjeta paso" id="paso-2">
+          <span class="paso__numero">2</span>
+          <div class="paso__cuerpo">
+            <h2>Horario</h2>
+            <p>Bloques de 1 hora; puedes tomar hasta 2 horas seguidas.</p>
+            <div class="fila" style="margin-bottom:14px">
+              <div>
+                <span class="sr-only" id="etiqueta-duracion">Duración</span>
+                <div class="segmentado" role="group" aria-labelledby="etiqueta-duracion" id="duracion">
+                  <button type="button" data-horas="1" aria-pressed="true">1 hora</button>
+                  <button type="button" data-horas="2" aria-pressed="false">2 horas</button>
+                </div>
+              </div>
+            </div>
+            <div class="campo">
+              <div id="horas" class="horas" role="group" aria-label="Horarios libres">
+                <p class="vacio">Elige primero una fecha y una sala.</p>
+              </div>
+              <input type="hidden" name="hora_inicio">
+            </div>
+          </div>
+        </section>
+
+        <section class="tarjeta paso" id="paso-3">
+          <span class="paso__numero">3</span>
+          <div class="paso__cuerpo">
+            <h2>Asistentes</h2>
+            <p id="ayuda-capacidad">Cuántas personas usarán la sala, incluyéndote.</p>
+            <div class="campo">
+              <label for="asistentes">Personas</label>
+              <div class="contador-numero">
+                <button class="boton boton--secundario" type="button" id="menos" aria-label="Una persona menos">−</button>
+                <input id="asistentes" name="asistentes" type="number" min="1" step="1" value="1" inputmode="numeric" required>
+                <button class="boton boton--secundario" type="button" id="mas" aria-label="Una persona más">+</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="tarjeta lateral">
+        <h2 style="margin-bottom:12px">Resumen</h2>
+        <dl class="resumen" id="resumen"></dl>
+        <p class="campo__ayuda" id="vigentes" style="margin:12px 0"></p>
+        <div id="mensaje" style="margin-bottom:12px"></div>
+        <button class="boton boton--primario boton--ancho" type="submit" id="boton-reservar">Reservar</button>
+      </aside>
+    </form>
+  </main>
+  <script type="module" src="js/paginas/nueva-reserva.js"></script>
+</body>
+</html>

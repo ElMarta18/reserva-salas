@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d4f73">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Salas">
+  <title>Disponibilidad · Reservas de Salas de Estudio</title>
+  <link rel="icon" href="img/icono.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/icono-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header id="cabecera"></header>
+  <main class="pagina">
+    <div class="pagina__titulo">
+      <div>
+        <h1>Disponibilidad</h1>
+        <p id="subtitulo">Elige una fecha y revisa los bloques libres de cada sala.</p>
+      </div>
+      <span id="reloj" class="reloj"></span>
+    </div>
+
+    <section class="tarjeta">
+      <div class="tarjeta__titulo">
+        <div class="selector-fecha">
+          <button class="boton boton--secundario boton--flecha" type="button" id="dia-anterior" aria-label="Día anterior">‹</button>
+          <div class="campo">
+            <label for="fecha">Fecha</label>
+            <input id="fecha" name="fecha" type="date">
+          </div>
+          <button class="boton boton--secundario boton--flecha" type="button" id="dia-siguiente" aria-label="Día siguiente">›</button>
+          <button class="boton boton--secundario solo-escritorio" type="button" id="hoy">Hoy</button>
+        </div>
+        <div class="leyenda" aria-label="Leyenda">
+          <span><i class="muestra muestra--libre"></i>Libre</span>
+          <span><i class="muestra muestra--ocupado"></i>Ocupado</span>
+          <span id="leyenda-propia"><i class="muestra muestra--propia"></i>Tu reserva</span>
+          <span><i class="muestra muestra--pasado"></i>Ya pasó</span>
+        </div>
+      </div>
+      <div id="mensaje"></div>
+      <div id="grilla"><p class="cargando">Cargando disponibilidad…</p></div>
+    </section>
+  </main>
+  <script type="module" src="js/paginas/disponibilidad.js"></script>
+</body>
+</html>

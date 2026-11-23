@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d4f73">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Salas">
+  <title>Reporte de uso · Reservas de Salas de Estudio</title>
+  <link rel="icon" href="img/icono.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/icono-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header id="cabecera"></header>
+  <main class="pagina">
+    <div class="pagina__titulo">
+      <div>
+        <h1>Reporte de uso</h1>
+        <p id="subtitulo">Reservas usadas y no usadas por sala y rango de fechas.</p>
+      </div>
+      <span id="reloj" class="reloj"></span>
+    </div>
+
+    <section class="tarjeta" style="margin-bottom:16px">
+      <form id="filtros" class="filtros" novalidate>
+        <div class="filtros__fila">
+          <div class="campo"><label for="desde">Desde</label><input id="desde" name="desde" type="date" required></div>
+          <div class="campo"><label for="hasta">Hasta</label><input id="hasta" name="hasta" type="date" required></div>
+        </div>
+        <div class="campo"><label for="sala">Sala</label><select id="sala" name="sala_id"><option value="">Todas las salas</option></select></div>
+        <button class="boton boton--primario" type="submit">Aplicar</button>
+        <div class="grupo-botones grupo-botones--parejo" aria-label="Rangos rápidos">
+          <button class="boton boton--secundario boton--chico" type="button" data-dias="7">7 días</button>
+          <button class="boton boton--secundario boton--chico" type="button" data-dias="14">14 días</button>
+          <button class="boton boton--secundario boton--chico" type="button" data-dias="30">30 días</button>
+        </div>
+      </form>
+      <div id="mensaje" style="margin-top:12px"></div>
+    </section>
+
+    <div id="kpis" class="kpis"></div>
+
+    <section class="tarjeta">
+      <div class="tarjeta__titulo">
+        <div>
+          <h2>Horas pico</h2>
+          <p class="campo__ayuda" id="pico-resumen">Reservas (no canceladas) que ocupan cada bloque horario.</p>
+        </div>
+      </div>
+      <div id="grafico" class="grafico"></div>
+      <details class="tabla-alternativa">
+        <summary>Ver como tabla</summary>
+        <div class="tabla-envoltura" id="tabla-horas"></div>
+      </details>
+    </section>
+
+    <section class="tarjeta">
+      <div class="tarjeta__titulo">
+        <h2>Uso por sala</h2>
+        <div class="grupo-botones" style="align-items:center">
+          <div class="leyenda">
+            <span><i class="punto" style="background:var(--serie-usadas)"></i>Usadas</span>
+            <span><i class="punto" style="background:var(--serie-no-usadas)"></i>No usadas</span>
+            <span><i class="punto" style="background:var(--serie-pendientes)"></i>Pendientes</span>
+          </div>
+          <button class="boton boton--secundario boton--chico" type="button" id="exportar">Exportar CSV</button>
+        </div>
+      </div>
+      <div class="tabla-envoltura" id="tabla-salas"></div>
+    </section>
+  </main>
+  <script type="module" src="js/paginas/reporte.js"></script>
+</body>
+</html>
